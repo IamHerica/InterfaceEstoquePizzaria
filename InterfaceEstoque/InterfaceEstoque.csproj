@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -55,38 +58,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroIngrediente.Context.cs">
+    <Compile Include="EstoquePizzaria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadastroIngrediente.Context.tt</DependentUpon>
+      <DependentUpon>EstoquePizzaria.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CadastroIngrediente.cs">
+    <Compile Include="EstoquePizzaria.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadastroIngrediente.tt</DependentUpon>
+      <DependentUpon>EstoquePizzaria.tt</DependentUpon>
     </Compile>
-    <Compile Include="CadastroIngrediente.Designer.cs">
+    <Compile Include="EstoquePizzaria.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CadastroIngrediente.edmx</DependentUpon>
+      <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
     </Compile>
-    <Compile Include="FormAddIngredienteEstoque.cs">
+    <Compile Include="FormCadastrarIngrediente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddIngredienteEstoque.Designer.cs">
-      <DependentUpon>FormAddIngredienteEstoque.cs</DependentUpon>
+    <Compile Include="FormCadastrarIngrediente.Designer.cs">
+      <DependentUpon>FormCadastrarIngrediente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdicionarIngrediente.cs">
+    <Compile Include="FormGerenciarEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdicionarIngrediente.Designer.cs">
-      <DependentUpon>FormAdicionarIngrediente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLista.Designer.cs">
-      <DependentUpon>FormLista.cs</DependentUpon>
+    <Compile Include="FormGerenciarEstoque.Designer.cs">
+      <DependentUpon>FormGerenciarEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -94,19 +91,16 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ingredientes.cs">
-      <DependentUpon>CadastroIngrediente.tt</DependentUpon>
+    <Compile Include="Ingrediente.cs">
+      <DependentUpon>EstoquePizzaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAddIngredienteEstoque.resx">
-      <DependentUpon>FormAddIngredienteEstoque.cs</DependentUpon>
+    <EmbeddedResource Include="FormCadastrarIngrediente.resx">
+      <DependentUpon>FormCadastrarIngrediente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAdicionarIngrediente.resx">
-      <DependentUpon>FormAdicionarIngrediente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLista.resx">
-      <DependentUpon>FormLista.cs</DependentUpon>
+    <EmbeddedResource Include="FormGerenciarEstoque.resx">
+      <DependentUpon>FormGerenciarEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -121,12 +115,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="CadastroIngrediente.edmx">
+    <EntityDeploy Include="EstoquePizzaria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CadastroIngrediente.Designer.cs</LastGenOutput>
+      <LastGenOutput>EstoquePizzaria.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CadastroIngrediente.edmx.diagram">
-      <DependentUpon>CadastroIngrediente.edmx</DependentUpon>
+    <None Include="EstoquePizzaria.edmx.diagram">
+      <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -149,19 +143,27 @@
     <None Include="Resources\fundoIngrediente.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CadastroIngrediente.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CadastroIngrediente.Context.cs</LastGenOutput>
-      <DependentUpon>CadastroIngrediente.edmx</DependentUpon>
-    </Content>
-    <Content Include="CadastroIngrediente.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CadastroIngrediente.edmx</DependentUpon>
-      <LastGenOutput>CadastroIngrediente.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="EstoquePizzaria.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
+      <LastGenOutput>EstoquePizzaria.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EstoquePizzaria.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
+      <LastGenOutput>EstoquePizzaria.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

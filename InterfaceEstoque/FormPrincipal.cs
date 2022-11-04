@@ -7,54 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+using System.Threading;
 
 namespace InterfaceEstoque
 {
     public partial class FormPrincipal : Form
     {
+        Thread nt;
+
         public FormPrincipal()
         {
             InitializeComponent();
         }
 
-        
-        FormLista formGerenciarEstoque = new FormLista();
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+            {
 
+                var count_atual = 0;
+                var count_max = 0;
+                foreach (var item in ctx.Ingrediente)
+                {
+                    count_atual = count_atual + Convert.ToInt32(item.quant_atual);
+                    count_max = count_max + Convert.ToInt32(item.quant_max);
+                }
+                labelQuantAtual.Text = count_atual.ToString();
+                try
+                {
+                    labelQuantMax.Text = ((count_atual * 100) / (count_max)).ToString() + "%";
+                }
+                catch (Exception)
+                {
+                    labelQuantMax.Text = "0%";
+                }
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void buttonGerenciarEstoque_Click(object sender, EventArgs e)
         {
-            
-            formGerenciarEstoque.Show();
-            
+            this.Close();
+            nt = new Thread(proximaPagina);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
+
+        private void proximaPagina(object obj)
+        {
+            Application.Run(new FormGerenciarEstoque());
+        }
+
     }
 }

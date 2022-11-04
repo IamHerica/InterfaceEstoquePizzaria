@@ -19,10 +19,5 @@ namespace InterfaceEstoque
             Application.Run(new FormPrincipal());
         }
 
-        public static List<Ingredientes> AtualizarGrid()
-        {
-            CadastrarIngredienteEntities atualizarGrid = new CadastrarIngredienteEntities();
-            return atualizarGrid.Ingredientes.ToList();
-        }
     }
 }

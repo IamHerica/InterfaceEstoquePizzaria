@@ -13,10 +13,10 @@ namespace InterfaceEstoque
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CadastrarIngredienteEntities : DbContext
+    public partial class EstoquePizzariaEntities : DbContext
     {
-        public CadastrarIngredienteEntities()
-            : base("name=CadastrarIngredienteEntities")
+        public EstoquePizzariaEntities()
+            : base("name=EstoquePizzariaEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace InterfaceEstoque
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ingredientes> Ingredientes { get; set; }
+        public virtual DbSet<Ingrediente> Ingrediente { get; set; }
     }
 }

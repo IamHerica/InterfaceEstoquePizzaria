@@ -12,20 +12,11 @@ namespace InterfaceEstoque
     using System;
     using System.Collections.Generic;
     
-    public partial class Ingredientes
+    public partial class Ingrediente
     {
-        public Ingredientes()
-        {
-
-        }
-
-        public string Ingrediente { get; set; }
-        public int Quantidade { get; set; }
-
-        public Ingredientes(string ingrediente, int quantidade)
-        {
-            Ingrediente = ingrediente;
-            Quantidade = quantidade;
-        }
+        public int id_ingrediente { get; set; }
+        public string nome { get; set; }
+        public Nullable<int> quant_atual { get; set; }
+        public Nullable<int> quant_max { get; set; }
     }
 }
