@@ -9,3 +9,6 @@
 - [ ] Criar Estoque
 - [ ] Forma de pagamento
 - [ ] Verificar se está usando os padrões de projeto
+
+
+<img src="banco de dados.png" />
