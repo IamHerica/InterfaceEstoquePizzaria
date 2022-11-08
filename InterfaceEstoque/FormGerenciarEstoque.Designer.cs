@@ -35,11 +35,13 @@
             this.cadastrarIngrediente = new System.Windows.Forms.Button();
             this.esvaziarEstoque = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
+            this.completarEstoque = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDados
             // 
+            this.dgvDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDados.Location = new System.Drawing.Point(116, 31);
             this.dgvDados.Name = "dgvDados";
@@ -111,11 +113,23 @@
             this.buttonVoltar.UseVisualStyleBackColor = true;
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
+            // completarEstoque
+            // 
+            this.completarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completarEstoque.Location = new System.Drawing.Point(518, 377);
+            this.completarEstoque.Name = "completarEstoque";
+            this.completarEstoque.Size = new System.Drawing.Size(164, 41);
+            this.completarEstoque.TabIndex = 7;
+            this.completarEstoque.Text = "Completar Estoque";
+            this.completarEstoque.UseVisualStyleBackColor = true;
+            this.completarEstoque.Click += new System.EventHandler(this.completarEstoque_Click);
+            // 
             // FormGerenciarEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.completarEstoque);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.esvaziarEstoque);
             this.Controls.Add(this.cadastrarIngrediente);
@@ -140,5 +154,6 @@
         private System.Windows.Forms.Button cadastrarIngrediente;
         private System.Windows.Forms.Button esvaziarEstoque;
         private System.Windows.Forms.Button buttonVoltar;
+        private System.Windows.Forms.Button completarEstoque;
     }
 }

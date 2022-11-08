@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using System.Threading;
 using System.Runtime.Remoting.Contexts;
+using static System.Windows.Forms.LinkLabel;
+using System.Runtime.Remoting.Messaging;
 
 namespace InterfaceEstoque
 {
@@ -55,33 +57,57 @@ namespace InterfaceEstoque
 
         private void removeIngrediente_Click(object sender, EventArgs e)
         {
-            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+            if (ehVazio()) { return; }
+            try
             {
-                Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == 1).SingleOrDefault();
+                int linha = Convert.ToInt16(dgvDados.CurrentRow.Index);
 
-                if(a != null)
+                int id = Int32.Parse(dgvDados.Rows[linha].Cells[0].Value.ToString());
+
+                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
                 {
-                    ctx.Ingrediente.Remove(a);
-                    ctx.SaveChanges();
+                    Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == id).SingleOrDefault();
+
+                    if (a != null)
+                    {
+                        ctx.Ingrediente.Remove(a);
+                        ctx.SaveChanges();
+                    }
                 }
+                MessageBox.Show("Item removido com sucesso!");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao remover item!\n" + ex);
+            }
+
 
             atualizaGrid();
         }
 
         private void attIngrediente_Click(object sender, EventArgs e)
         {
-            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+            if (ehVazio()){ return; }
+            try
             {
-                Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == 1).SingleOrDefault();
-
-                if (a != null)
+                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
                 {
-                    a.nome = "alterado";
-                    ctx.Entry(a).CurrentValues.SetValues(a);
-                    ctx.SaveChanges();
+                    Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == 1).SingleOrDefault();
+
+                    if (a != null)
+                    {
+                        a.nome = "alterado";
+                        ctx.Entry(a).CurrentValues.SetValues(a);
+                        ctx.SaveChanges();
+                    }
                 }
+                MessageBox.Show("Ingrediente alterado com sucesso");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar item\n" + ex);
+            }
+
 
             atualizaGrid();
         }
@@ -115,12 +141,47 @@ namespace InterfaceEstoque
                 atualizaGrid();
                 MessageBox.Show("Esvaziado com sucesso");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao esvaziar estoque");
+                MessageBox.Show("Erro ao esvaziar estoque\n" + ex);
             }
 
 
+        }
+
+        private void completarEstoque_Click(object sender, EventArgs e)
+        {
+            if (ehVazio()) { return; }
+
+            try
+            {
+                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+                {
+                    foreach (var item in ctx.Ingrediente)
+                    {
+                        Ingrediente a = item;
+                        a.quant_atual = a.quant_max;
+                        ctx.Entry(a).CurrentValues.SetValues(a);
+                    }
+                    ctx.SaveChanges();
+                }
+                atualizaGrid();
+                MessageBox.Show("Estoque completado com sucesso");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro ao completar estoque");
+            }
+        }
+
+        private bool ehVazio()
+        {
+            if (dgvDados.Rows.Count == 0)
+            {
+                MessageBox.Show("Estoque Vazio!");
+                return true;
+            }
+            return false;
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)
@@ -135,5 +196,6 @@ namespace InterfaceEstoque
         {
             Application.Run(new FormPrincipal());
         }
+
     }
 }
