@@ -13,10 +13,10 @@ namespace InterfaceEstoque
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EstoquePizzariaEntities : DbContext
+    public partial class PizzariaDiegoEntities : DbContext
     {
-        public EstoquePizzariaEntities()
-            : base("name=EstoquePizzariaEntities")
+        public PizzariaDiegoEntities()
+            : base("name=PizzariaDiegoEntities")
         {
         }
     

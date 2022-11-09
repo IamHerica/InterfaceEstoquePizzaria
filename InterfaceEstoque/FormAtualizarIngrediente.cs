@@ -1,28 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfaceEstoque
 {
-    public partial class FormCadastrarIngrediente : Form
+    public partial class FormAtualizarIngrediente : Form
     {
-        Thread nt;
-
-        public FormCadastrarIngrediente()
+        public FormAtualizarIngrediente()
         {
             InitializeComponent();
         }
 
-        private void FormCadastrarIngrediente_Load(object sender, EventArgs e)
+        private void atualizar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void cadastrar_Click(object sender, EventArgs e)
-        {
-
             using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
             {
                 Ingrediente ingrediente = new Ingrediente();
@@ -34,7 +31,7 @@ namespace InterfaceEstoque
                     }
                     else
                     {
-                        System.Nullable<Int16> maxId = (short)(from item in ctx.Ingrediente select item.id_ingrediente).Max();
+                        short? maxId = (short)(from item in ctx.Ingrediente select item.id_ingrediente).Max();
                         ingrediente.id_ingrediente = (int)(maxId + 1);
                     }
                     ingrediente.nome = textBoxNomeIngrediente.Text;
@@ -47,40 +44,18 @@ namespace InterfaceEstoque
                         return;
                     }
 
-                    ctx.Ingrediente.Add(ingrediente);
+                    ctx.Entry(ingrediente).CurrentValues.SetValues(ingrediente);
                     ctx.SaveChanges();
 
-                    MessageBox.Show("Cadastrado com sucesso");
+                    MessageBox.Show("Atualizado com sucesso");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao cadastrar\n" + ex);
+                    MessageBox.Show("Erro ao atualizar\n" + ex);
                 }
 
                 this.Close();
-                nt = new Thread(proximaPagina);
-                nt.SetApartmentState(ApartmentState.STA);
-                nt.Start();
             }
         }
-        private void voltar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            nt = new Thread(voltarPagina);
-            nt.SetApartmentState(ApartmentState.STA);
-            nt.Start();
-        }
-
-        private void proximaPagina(object obj)
-        {
-            Application.Run(new FormGerenciarEstoque());
-        }
-
-        private void voltarPagina(object obj)
-        {
-            Application.Run(new FormGerenciarEstoque());
-        }
-
-
     }
 }

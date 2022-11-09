@@ -73,6 +73,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FormAtualizarIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAtualizarIngrediente.Designer.cs">
+      <DependentUpon>FormAtualizarIngrediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastrarIngrediente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAtualizarIngrediente.resx">
+      <DependentUpon>FormAtualizarIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCadastrarIngrediente.resx">
       <DependentUpon>FormCadastrarIngrediente.cs</DependentUpon>
     </EmbeddedResource>

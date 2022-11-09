@@ -19,6 +19,7 @@ namespace InterfaceEstoque
     {
         Thread nt;
 
+
         public FormGerenciarEstoque()
         {
             InitializeComponent();
@@ -29,9 +30,9 @@ namespace InterfaceEstoque
             atualizaGrid();
         }
 
-        private void atualizaGrid()
+        public void atualizaGrid()
         {
-            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+            using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
             {
                 dgvDados.DataSource = ctx.Ingrediente.ToList();
             }
@@ -39,20 +40,10 @@ namespace InterfaceEstoque
 
         private void addIngrediente_Click(object sender, EventArgs e)
         {
-
-            Ingrediente a = new Ingrediente();
-            a.id_ingrediente = 1;
-            a.nome = "arroz";
-            a.quant_atual = 1;
-            a.quant_max = 5;
-
-            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
-            {
-                ctx.Ingrediente.Add(a);
-                ctx.SaveChanges();
-            }
-
-            atualizaGrid();
+            this.Close();
+            nt = new Thread(proximaPagina);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
 
         private void removeIngrediente_Click(object sender, EventArgs e)
@@ -64,7 +55,7 @@ namespace InterfaceEstoque
 
                 int id = Int32.Parse(dgvDados.Rows[linha].Cells[0].Value.ToString());
 
-                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+                using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
                 {
                     Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == id).SingleOrDefault();
 
@@ -87,21 +78,12 @@ namespace InterfaceEstoque
 
         private void attIngrediente_Click(object sender, EventArgs e)
         {
-            if (ehVazio()){ return; }
+            if (ehVazio()) { return; }
+
             try
             {
-                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
-                {
-                    Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == 1).SingleOrDefault();
-
-                    if (a != null)
-                    {
-                        a.nome = "alterado";
-                        ctx.Entry(a).CurrentValues.SetValues(a);
-                        ctx.SaveChanges();
-                    }
-                }
-                MessageBox.Show("Ingrediente alterado com sucesso");
+                var formAtualizar = new FormAtualizarIngrediente();
+                formAtualizar.ShowDialog(); 
             }
             catch (Exception ex)
             {
@@ -123,14 +105,14 @@ namespace InterfaceEstoque
 
         private void proximaPagina(object obj)
         {
-            Application.Run(new FormCadastrarIngrediente());
+            Application.Run(new FormAtualizarIngrediente());
         }
 
         private void esvaziarEstoque_Click(object sender, EventArgs e)
         {
             try
             {
-                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+                using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
                 {
                     foreach (var item in ctx.Ingrediente)
                     {
@@ -155,7 +137,7 @@ namespace InterfaceEstoque
 
             try
             {
-                using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+                using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
                 {
                     foreach (var item in ctx.Ingrediente)
                     {
