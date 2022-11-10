@@ -91,5 +91,6 @@ namespace InterfaceEstoque
         {
             Application.Run(new FormGerenciarEstoque());
         }
+
     }
 }

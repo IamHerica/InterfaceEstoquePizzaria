@@ -118,10 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fundoIngrediente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoIngrediente.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoPrincipalInvertida" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoPrincipalInvertida.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fundoPrincipal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fundoPrincipal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fundoIngrediente" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fundoIngrediente.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pizza-4952508_960_720mod" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoPrincipal2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoCadastroIngredientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoCadastroIngredientes.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoAttIngrediente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoAttIngrediente.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pizza-4952508_960_720mod1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoPrincipal2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoCadastroIngredientes2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoCadastroIngredientes2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoButtom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoButtom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoCadastroIngredientes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoCadastroIngredientes1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fundoPrincipal2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fundoPrincipal21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

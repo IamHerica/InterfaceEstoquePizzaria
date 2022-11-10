@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGerenciarEstoque));
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.addIngrediente = new System.Windows.Forms.Button();
             this.removeIngrediente = new System.Windows.Forms.Button();
@@ -42,16 +43,20 @@
             // dgvDados
             // 
             this.dgvDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDados.BackgroundColor = System.Drawing.Color.DarkGreen;
+            this.dgvDados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDados.Location = new System.Drawing.Point(116, 31);
+            this.dgvDados.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvDados.Location = new System.Drawing.Point(187, 31);
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.Size = new System.Drawing.Size(566, 236);
             this.dgvDados.TabIndex = 0;
             // 
             // addIngrediente
             // 
-            this.addIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIngrediente.Location = new System.Drawing.Point(116, 302);
+            this.addIngrediente.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.addIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addIngrediente.Location = new System.Drawing.Point(187, 311);
             this.addIngrediente.Name = "addIngrediente";
             this.addIngrediente.Size = new System.Drawing.Size(164, 41);
             this.addIngrediente.TabIndex = 1;
@@ -61,8 +66,9 @@
             // 
             // removeIngrediente
             // 
-            this.removeIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeIngrediente.Location = new System.Drawing.Point(320, 302);
+            this.removeIngrediente.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.removeIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeIngrediente.Location = new System.Drawing.Point(391, 311);
             this.removeIngrediente.Name = "removeIngrediente";
             this.removeIngrediente.Size = new System.Drawing.Size(164, 41);
             this.removeIngrediente.TabIndex = 2;
@@ -72,8 +78,9 @@
             // 
             // attIngrediente
             // 
-            this.attIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attIngrediente.Location = new System.Drawing.Point(518, 302);
+            this.attIngrediente.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.attIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attIngrediente.Location = new System.Drawing.Point(589, 311);
             this.attIngrediente.Name = "attIngrediente";
             this.attIngrediente.Size = new System.Drawing.Size(164, 41);
             this.attIngrediente.TabIndex = 3;
@@ -83,8 +90,9 @@
             // 
             // cadastrarIngrediente
             // 
-            this.cadastrarIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cadastrarIngrediente.Location = new System.Drawing.Point(116, 377);
+            this.cadastrarIngrediente.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.cadastrarIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cadastrarIngrediente.Location = new System.Drawing.Point(187, 386);
             this.cadastrarIngrediente.Name = "cadastrarIngrediente";
             this.cadastrarIngrediente.Size = new System.Drawing.Size(164, 41);
             this.cadastrarIngrediente.TabIndex = 4;
@@ -94,8 +102,9 @@
             // 
             // esvaziarEstoque
             // 
-            this.esvaziarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.esvaziarEstoque.Location = new System.Drawing.Point(320, 377);
+            this.esvaziarEstoque.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.esvaziarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.esvaziarEstoque.Location = new System.Drawing.Point(391, 386);
             this.esvaziarEstoque.Name = "esvaziarEstoque";
             this.esvaziarEstoque.Size = new System.Drawing.Size(164, 41);
             this.esvaziarEstoque.TabIndex = 5;
@@ -105,18 +114,22 @@
             // 
             // buttonVoltar
             // 
-            this.buttonVoltar.Location = new System.Drawing.Point(704, 31);
+            this.buttonVoltar.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVoltar.ForeColor = System.Drawing.Color.Silver;
+            this.buttonVoltar.Location = new System.Drawing.Point(106, 31);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(75, 23);
             this.buttonVoltar.TabIndex = 6;
             this.buttonVoltar.Text = "VOLTAR";
-            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.UseVisualStyleBackColor = false;
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // completarEstoque
             // 
-            this.completarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.completarEstoque.Location = new System.Drawing.Point(518, 377);
+            this.completarEstoque.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoButtom;
+            this.completarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completarEstoque.Location = new System.Drawing.Point(589, 386);
             this.completarEstoque.Name = "completarEstoque";
             this.completarEstoque.Size = new System.Drawing.Size(164, 41);
             this.completarEstoque.TabIndex = 7;
@@ -128,7 +141,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::InterfaceEstoque.Properties.Resources.pizza_4952508_960_720mod1;
+            this.ClientSize = new System.Drawing.Size(800, 471);
             this.Controls.Add(this.completarEstoque);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.esvaziarEstoque);
@@ -137,8 +151,9 @@
             this.Controls.Add(this.removeIngrediente);
             this.Controls.Add(this.addIngrediente);
             this.Controls.Add(this.dgvDados);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormGerenciarEstoque";
-            this.Text = "FormGerenciarEstoque";
+            this.Text = "GerenciarEstoque";
             this.Load += new System.EventHandler(this.FormGerenciarEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();
             this.ResumeLayout(false);
