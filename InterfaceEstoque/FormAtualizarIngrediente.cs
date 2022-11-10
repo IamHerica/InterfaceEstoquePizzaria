@@ -1,61 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfaceEstoque
 {
     public partial class FormAtualizarIngrediente : Form
     {
-        public FormAtualizarIngrediente()
+        Thread nt;
+        int id;
+        public FormAtualizarIngrediente(int id)
         {
+            this.id = id;
             InitializeComponent();
         }
 
-        private void atualizar_Click(object sender, EventArgs e)
+        private void FormAtualizarIngrediente_Load(object sender, EventArgs e)
         {
-            using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
+            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
             {
-                Ingrediente ingrediente = new Ingrediente();
+                Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == this.id).SingleOrDefault();
+
+                textBoxNameIngrediente.Text = a.nome;
+                textBoxQuantMax.Text = a.quant_max.ToString();
+            }
+
+        }
+
+        private void buttonAtualizar_Click(object sender, EventArgs e)
+        {
+            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
+            {
                 try
                 {
-                    if (ctx.Ingrediente.Count() == 0)
-                    {
-                        ingrediente.id_ingrediente = 1;
-                    }
-                    else
-                    {
-                        short? maxId = (short)(from item in ctx.Ingrediente select item.id_ingrediente).Max();
-                        ingrediente.id_ingrediente = (int)(maxId + 1);
-                    }
-                    ingrediente.nome = textBoxNomeIngrediente.Text;
-                    ingrediente.quant_atual = Int32.Parse(textBoxQuantAtual.Text);
-                    ingrediente.quant_max = Int32.Parse(textBoxQuantMax.Text);
+                    Ingrediente a = ctx.Ingrediente.Where(x => x.id_ingrediente == this.id).SingleOrDefault();
 
-                    if (ingrediente.quant_max < ingrediente.quant_atual)
+                    a.nome = textBoxNameIngrediente.Text;
+                    a.quant_max = Int32.Parse(textBoxQuantMax.Text);
+
+                    if (Int32.Parse(textBoxQuantMax.Text) < a.quant_atual)
                     {
-                        MessageBox.Show("Valor limite não pode ser abaixo do atual");
+                        MessageBox.Show("Valor máximo não pode estar abaixo da quantidade atual\nQuantidade atual: " + a.quant_atual);
                         return;
                     }
 
-                    ctx.Entry(ingrediente).CurrentValues.SetValues(ingrediente);
+                    ctx.Entry(a).CurrentValues.SetValues(a);
                     ctx.SaveChanges();
-
-                    MessageBox.Show("Atualizado com sucesso");
+                    MessageBox.Show("Atualizado com sucesso!");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao atualizar\n" + ex);
+                    MessageBox.Show("Erro ao atualizar!\n" + ex);
                 }
 
                 this.Close();
+                nt = new Thread(paginaGerenciarEstoque);
+                nt.SetApartmentState(ApartmentState.STA);
+                nt.Start();
             }
+        }
+
+        private void voltarPagina(object obj)
+        {
+            Application.Run(new FormGerenciarEstoque());
+        }
+
+        private void paginaGerenciarEstoque(object obj)
+        {
+            Application.Run(new FormGerenciarEstoque());
+        }
+
+        private void buttonVoltar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            nt = new Thread(voltarPagina);
+            nt.SetApartmentState(ApartmentState.STA);
+            nt.Start();
         }
     }
 }

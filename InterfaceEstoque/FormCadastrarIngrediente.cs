@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EstoquePizzaria;
+using System;
 using System.Data;
 using System.Linq;
 using System.Threading;
@@ -9,6 +10,7 @@ namespace InterfaceEstoque
     public partial class FormCadastrarIngrediente : Form
     {
         Thread nt;
+        private IFormaPagamento formaPagamentoStratgy;
 
         public FormCadastrarIngrediente()
         {
@@ -20,10 +22,22 @@ namespace InterfaceEstoque
 
         }
 
+        public string check_formaPagamento(int qtd) //Strategy definir forma de pagamento
+        {
+            if (qtd < 10)
+            {
+                formaPagamentoStratgy = new FormaPagamentoPix();
+                return formaPagamentoStratgy.formaPagamento();
+            }
+
+            formaPagamentoStratgy = new FormaPagamentoCartaoCredito();
+            return formaPagamentoStratgy.formaPagamento();
+        }
+
         private void cadastrar_Click(object sender, EventArgs e)
         {
 
-            using (PizzariaDiegoEntities ctx = new PizzariaDiegoEntities())
+            using (EstoquePizzariaEntities ctx = new EstoquePizzariaEntities())
             {
                 Ingrediente ingrediente = new Ingrediente();
                 try
@@ -50,7 +64,8 @@ namespace InterfaceEstoque
                     ctx.Ingrediente.Add(ingrediente);
                     ctx.SaveChanges();
 
-                    MessageBox.Show("Cadastrado com sucesso");
+                    string check = check_formaPagamento((int)ingrediente.quant_atual);
+                    MessageBox.Show("Cadastrado com sucesso\n\nFORMA DE PAGAMENTO: " + check);
                 }
                 catch (Exception ex)
                 {

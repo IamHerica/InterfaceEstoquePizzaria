@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonCriarEstoque = new System.Windows.Forms.Button();
             this.buttonGerenciarEstoque = new System.Windows.Forms.Button();
             this.labelQuantAtual = new System.Windows.Forms.Label();
             this.labelQuantMax = new System.Windows.Forms.Label();
             this.labelTituloPrincipal = new System.Windows.Forms.Label();
             this.labelTextQuantAtual = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonDeletarEstoque = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button5
+            // buttonCriarEstoque
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(298, 372);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(240, 52);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Criar Estoque";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonCriarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCriarEstoque.Location = new System.Drawing.Point(153, 372);
+            this.buttonCriarEstoque.Name = "buttonCriarEstoque";
+            this.buttonCriarEstoque.Size = new System.Drawing.Size(240, 52);
+            this.buttonCriarEstoque.TabIndex = 17;
+            this.buttonCriarEstoque.Text = "Criar Estoque";
+            this.buttonCriarEstoque.UseVisualStyleBackColor = true;
+            this.buttonCriarEstoque.Click += new System.EventHandler(this.buttonCriarEstoque_Click);
             // 
             // buttonGerenciarEstoque
             // 
@@ -110,19 +112,31 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Limite do Estoque %";
             // 
+            // buttonDeletarEstoque
+            // 
+            this.buttonDeletarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeletarEstoque.Location = new System.Drawing.Point(425, 372);
+            this.buttonDeletarEstoque.Name = "buttonDeletarEstoque";
+            this.buttonDeletarEstoque.Size = new System.Drawing.Size(240, 52);
+            this.buttonDeletarEstoque.TabIndex = 31;
+            this.buttonDeletarEstoque.Text = "Deletar Estoque";
+            this.buttonDeletarEstoque.UseVisualStyleBackColor = true;
+            this.buttonDeletarEstoque.Click += new System.EventHandler(this.buttonDeletarEstoque_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfaceEstoque.Properties.Resources.fundoPrincipal;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonDeletarEstoque);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTextQuantAtual);
             this.Controls.Add(this.labelTituloPrincipal);
             this.Controls.Add(this.labelQuantMax);
             this.Controls.Add(this.labelQuantAtual);
             this.Controls.Add(this.buttonGerenciarEstoque);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.buttonCriarEstoque);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPrincipal";
             this.Text = "Form1";
@@ -133,13 +147,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonCriarEstoque;
         private System.Windows.Forms.Button buttonGerenciarEstoque;
         private System.Windows.Forms.Label labelQuantAtual;
         private System.Windows.Forms.Label labelQuantMax;
         private System.Windows.Forms.Label labelTituloPrincipal;
         private System.Windows.Forms.Label labelTextQuantAtual;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonDeletarEstoque;
     }
 }
 

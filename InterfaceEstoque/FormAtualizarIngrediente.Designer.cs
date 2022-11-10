@@ -28,124 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.voltar = new System.Windows.Forms.Button();
+            this.buttonAtualizar = new System.Windows.Forms.Button();
+            this.buttonVoltar = new System.Windows.Forms.Button();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.labelNameIngrediente = new System.Windows.Forms.Label();
             this.labelQuantMax = new System.Windows.Forms.Label();
-            this.labelQuantAtual = new System.Windows.Forms.Label();
-            this.labelNomeIngrediente = new System.Windows.Forms.Label();
+            this.textBoxNameIngrediente = new System.Windows.Forms.TextBox();
             this.textBoxQuantMax = new System.Windows.Forms.TextBox();
-            this.textBoxQuantAtual = new System.Windows.Forms.TextBox();
-            this.textBoxNomeIngrediente = new System.Windows.Forms.TextBox();
-            this.tituloCadastrarIngrediente = new System.Windows.Forms.Label();
-            this.atualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // voltar
+            // buttonAtualizar
             // 
-            this.voltar.Location = new System.Drawing.Point(198, 456);
-            this.voltar.Margin = new System.Windows.Forms.Padding(4);
-            this.voltar.Name = "voltar";
-            this.voltar.Size = new System.Drawing.Size(100, 28);
-            this.voltar.TabIndex = 17;
-            this.voltar.Text = "VOLTAR";
-            this.voltar.UseVisualStyleBackColor = true;
+            this.buttonAtualizar.Location = new System.Drawing.Point(212, 299);
+            this.buttonAtualizar.Name = "buttonAtualizar";
+            this.buttonAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAtualizar.TabIndex = 0;
+            this.buttonAtualizar.Text = "Atualizar";
+            this.buttonAtualizar.UseVisualStyleBackColor = true;
+            this.buttonAtualizar.Click += new System.EventHandler(this.buttonAtualizar_Click);
+            // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Location = new System.Drawing.Point(448, 52);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(75, 23);
+            this.buttonVoltar.TabIndex = 1;
+            this.buttonVoltar.Text = "VOLTAR";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click_1);
+            // 
+            // labelTitulo
+            // 
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Location = new System.Drawing.Point(140, 35);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(144, 13);
+            this.labelTitulo.TabIndex = 2;
+            this.labelTitulo.Text = "ATUALIZAR INGREDIENTE";
+            // 
+            // labelNameIngrediente
+            // 
+            this.labelNameIngrediente.AutoSize = true;
+            this.labelNameIngrediente.Location = new System.Drawing.Point(95, 138);
+            this.labelNameIngrediente.Name = "labelNameIngrediente";
+            this.labelNameIngrediente.Size = new System.Drawing.Size(41, 13);
+            this.labelNameIngrediente.TabIndex = 3;
+            this.labelNameIngrediente.Text = "Nome: ";
             // 
             // labelQuantMax
             // 
             this.labelQuantMax.AutoSize = true;
-            this.labelQuantMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuantMax.Location = new System.Drawing.Point(89, 261);
-            this.labelQuantMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelQuantMax.Location = new System.Drawing.Point(95, 181);
             this.labelQuantMax.Name = "labelQuantMax";
-            this.labelQuantMax.Size = new System.Drawing.Size(157, 20);
-            this.labelQuantMax.TabIndex = 16;
-            this.labelQuantMax.Text = "Quantidade Máxima";
+            this.labelQuantMax.Size = new System.Drawing.Size(100, 13);
+            this.labelQuantMax.TabIndex = 4;
+            this.labelQuantMax.Text = "Quantidade máxima";
             // 
-            // labelQuantAtual
+            // textBoxNameIngrediente
             // 
-            this.labelQuantAtual.AutoSize = true;
-            this.labelQuantAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuantAtual.Location = new System.Drawing.Point(89, 186);
-            this.labelQuantAtual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelQuantAtual.Name = "labelQuantAtual";
-            this.labelQuantAtual.Size = new System.Drawing.Size(135, 20);
-            this.labelQuantAtual.TabIndex = 15;
-            this.labelQuantAtual.Text = "Quantidade atual";
-            // 
-            // labelNomeIngrediente
-            // 
-            this.labelNomeIngrediente.AutoSize = true;
-            this.labelNomeIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomeIngrediente.Location = new System.Drawing.Point(89, 109);
-            this.labelNomeIngrediente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNomeIngrediente.Name = "labelNomeIngrediente";
-            this.labelNomeIngrediente.Size = new System.Drawing.Size(53, 20);
-            this.labelNomeIngrediente.TabIndex = 14;
-            this.labelNomeIngrediente.Text = "Nome";
+            this.textBoxNameIngrediente.Location = new System.Drawing.Point(263, 135);
+            this.textBoxNameIngrediente.Name = "textBoxNameIngrediente";
+            this.textBoxNameIngrediente.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNameIngrediente.TabIndex = 5;
             // 
             // textBoxQuantMax
             // 
-            this.textBoxQuantMax.Location = new System.Drawing.Point(93, 285);
-            this.textBoxQuantMax.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxQuantMax.Location = new System.Drawing.Point(263, 178);
             this.textBoxQuantMax.Name = "textBoxQuantMax";
-            this.textBoxQuantMax.Size = new System.Drawing.Size(180, 22);
-            this.textBoxQuantMax.TabIndex = 13;
-            // 
-            // textBoxQuantAtual
-            // 
-            this.textBoxQuantAtual.Location = new System.Drawing.Point(93, 210);
-            this.textBoxQuantAtual.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxQuantAtual.Name = "textBoxQuantAtual";
-            this.textBoxQuantAtual.Size = new System.Drawing.Size(180, 22);
-            this.textBoxQuantAtual.TabIndex = 12;
-            // 
-            // textBoxNomeIngrediente
-            // 
-            this.textBoxNomeIngrediente.Location = new System.Drawing.Point(93, 134);
-            this.textBoxNomeIngrediente.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxNomeIngrediente.Name = "textBoxNomeIngrediente";
-            this.textBoxNomeIngrediente.Size = new System.Drawing.Size(308, 22);
-            this.textBoxNomeIngrediente.TabIndex = 11;
-            // 
-            // tituloCadastrarIngrediente
-            // 
-            this.tituloCadastrarIngrediente.AutoSize = true;
-            this.tituloCadastrarIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            this.tituloCadastrarIngrediente.Location = new System.Drawing.Point(70, 15);
-            this.tituloCadastrarIngrediente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.tituloCadastrarIngrediente.Name = "tituloCadastrarIngrediente";
-            this.tituloCadastrarIngrediente.Size = new System.Drawing.Size(259, 25);
-            this.tituloCadastrarIngrediente.TabIndex = 10;
-            this.tituloCadastrarIngrediente.Text = "ATUALIZAR INGREDIENTE";
-            this.tituloCadastrarIngrediente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // atualizar
-            // 
-            this.atualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.atualizar.Location = new System.Drawing.Point(93, 375);
-            this.atualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.atualizar.Name = "atualizar";
-            this.atualizar.Size = new System.Drawing.Size(309, 50);
-            this.atualizar.TabIndex = 9;
-            this.atualizar.Text = "Atualizar";
-            this.atualizar.UseVisualStyleBackColor = true;
-            this.atualizar.Click += new System.EventHandler(this.atualizar_Click);
+            this.textBoxQuantMax.Size = new System.Drawing.Size(100, 20);
+            this.textBoxQuantMax.TabIndex = 6;
             // 
             // FormAtualizarIngrediente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 498);
-            this.Controls.Add(this.voltar);
-            this.Controls.Add(this.labelQuantMax);
-            this.Controls.Add(this.labelQuantAtual);
-            this.Controls.Add(this.labelNomeIngrediente);
+            this.ClientSize = new System.Drawing.Size(542, 369);
             this.Controls.Add(this.textBoxQuantMax);
-            this.Controls.Add(this.textBoxQuantAtual);
-            this.Controls.Add(this.textBoxNomeIngrediente);
-            this.Controls.Add(this.tituloCadastrarIngrediente);
-            this.Controls.Add(this.atualizar);
+            this.Controls.Add(this.textBoxNameIngrediente);
+            this.Controls.Add(this.labelQuantMax);
+            this.Controls.Add(this.labelNameIngrediente);
+            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.buttonVoltar);
+            this.Controls.Add(this.buttonAtualizar);
             this.Name = "FormAtualizarIngrediente";
             this.Text = "FormAtualizarIngrediente";
+            this.Load += new System.EventHandler(this.FormAtualizarIngrediente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,14 +120,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button voltar;
+        private System.Windows.Forms.Button buttonAtualizar;
+        private System.Windows.Forms.Button buttonVoltar;
+        private System.Windows.Forms.Label labelTitulo;
+        private System.Windows.Forms.Label labelNameIngrediente;
         private System.Windows.Forms.Label labelQuantMax;
-        private System.Windows.Forms.Label labelQuantAtual;
-        private System.Windows.Forms.Label labelNomeIngrediente;
+        private System.Windows.Forms.TextBox textBoxNameIngrediente;
         private System.Windows.Forms.TextBox textBoxQuantMax;
-        private System.Windows.Forms.TextBox textBoxQuantAtual;
-        private System.Windows.Forms.TextBox textBoxNomeIngrediente;
-        private System.Windows.Forms.Label tituloCadastrarIngrediente;
-        private System.Windows.Forms.Button atualizar;
     }
 }
