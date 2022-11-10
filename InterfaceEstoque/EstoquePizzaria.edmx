@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PizzariaDiegoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EstoquePizzariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="id_estoque" />
+          </Key>
+          <Property Name="id_estoque" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" />
+          <Property Name="quant_ingredientes" Type="int" />
+          <Property Name="limite_estoque" Type="int" />
+        </EntityType>
         <EntityType Name="Ingrediente">
           <Key>
             <PropertyRef Name="id_ingrediente" />
@@ -14,14 +23,24 @@
           <Property Name="quant_atual" Type="int" />
           <Property Name="quant_max" Type="int" />
         </EntityType>
-        <EntityContainer Name="PizzariaDiegoModelStoreContainer">
+        <EntityContainer Name="EstoquePizzariaModelStoreContainer">
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ingrediente" EntityType="Self.Ingrediente" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PizzariaDiegoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EstoquePizzariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estoque">
+          <Key>
+            <PropertyRef Name="id_estoque" />
+          </Key>
+          <Property Name="id_estoque" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quant_ingredientes" Type="Int32" />
+          <Property Name="limite_estoque" Type="Int32" />
+        </EntityType>
         <EntityType Name="Ingrediente">
           <Key>
             <PropertyRef Name="id_ingrediente" />
@@ -31,7 +50,8 @@
           <Property Name="quant_atual" Type="Int32" />
           <Property Name="quant_max" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="PizzariaDiegoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EstoquePizzariaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estoque" EntityType="Self.Estoque" />
           <EntitySet Name="Ingrediente" EntityType="Self.Ingrediente" />
         </EntityContainer>
       </Schema>
@@ -39,9 +59,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PizzariaDiegoModelStoreContainer" CdmEntityContainer="PizzariaDiegoEntities">
+        <EntityContainerMapping StorageEntityContainer="EstoquePizzariaModelStoreContainer" CdmEntityContainer="EstoquePizzariaEntities">
+          <EntitySetMapping Name="Estoque">
+            <EntityTypeMapping TypeName="EstoquePizzariaModel.Estoque">
+              <MappingFragment StoreEntitySet="Estoque">
+                <ScalarProperty Name="id_estoque" ColumnName="id_estoque" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="quant_ingredientes" ColumnName="quant_ingredientes" />
+                <ScalarProperty Name="limite_estoque" ColumnName="limite_estoque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ingrediente">
-            <EntityTypeMapping TypeName="PizzariaDiegoModel.Ingrediente">
+            <EntityTypeMapping TypeName="EstoquePizzariaModel.Ingrediente">
               <MappingFragment StoreEntitySet="Ingrediente">
                 <ScalarProperty Name="id_ingrediente" ColumnName="id_ingrediente" />
                 <ScalarProperty Name="nome" ColumnName="nome" />

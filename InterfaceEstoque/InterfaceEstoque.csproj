@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Estoque.cs">
+      <DependentUpon>EstoquePizzaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="EstoquePizzaria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +76,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EstoquePizzaria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FormAdicionarIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdicionarIngrediente.Designer.cs">
+      <DependentUpon>FormAdicionarIngrediente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormaPagamentoCartaoCredito.cs" />
+    <Compile Include="FormaPagamentoPix.cs" />
     <Compile Include="FormAtualizarIngrediente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +108,15 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="IFormaPagamento.cs" />
     <Compile Include="Ingrediente.cs">
       <DependentUpon>EstoquePizzaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAdicionarIngrediente.resx">
+      <DependentUpon>FormAdicionarIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAtualizarIngrediente.resx">
       <DependentUpon>FormAtualizarIngrediente.cs</DependentUpon>
     </EmbeddedResource>

@@ -50,36 +50,36 @@
             // 
             // addIngrediente
             // 
-            this.addIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addIngrediente.Location = new System.Drawing.Point(116, 302);
             this.addIngrediente.Name = "addIngrediente";
             this.addIngrediente.Size = new System.Drawing.Size(164, 41);
             this.addIngrediente.TabIndex = 1;
-            this.addIngrediente.Text = "Adicionar Ingrediente";
+            this.addIngrediente.Text = "Adicionar/Remover quantidade ingrediente";
             this.addIngrediente.UseVisualStyleBackColor = true;
-            this.addIngrediente.Click += new System.EventHandler(this.addIngrediente_Click);
+            this.addIngrediente.Click += new System.EventHandler(this.buttonAddIngrediente_Click);
             // 
             // removeIngrediente
             // 
-            this.removeIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeIngrediente.Location = new System.Drawing.Point(320, 302);
             this.removeIngrediente.Name = "removeIngrediente";
             this.removeIngrediente.Size = new System.Drawing.Size(164, 41);
             this.removeIngrediente.TabIndex = 2;
-            this.removeIngrediente.Text = "Remover Ingrediente";
+            this.removeIngrediente.Text = "Remover ingrediente do estoque";
             this.removeIngrediente.UseVisualStyleBackColor = true;
-            this.removeIngrediente.Click += new System.EventHandler(this.removeIngrediente_Click);
+            this.removeIngrediente.Click += new System.EventHandler(this.buttonRemoveIngrediente_Click);
             // 
             // attIngrediente
             // 
-            this.attIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attIngrediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attIngrediente.Location = new System.Drawing.Point(518, 302);
             this.attIngrediente.Name = "attIngrediente";
             this.attIngrediente.Size = new System.Drawing.Size(164, 41);
             this.attIngrediente.TabIndex = 3;
-            this.attIngrediente.Text = "Atualizar Ingrediente";
+            this.attIngrediente.Text = "Atualizar informações ingrediente";
             this.attIngrediente.UseVisualStyleBackColor = true;
-            this.attIngrediente.Click += new System.EventHandler(this.attIngrediente_Click);
+            this.attIngrediente.Click += new System.EventHandler(this.buttonAttIngrediente_Click);
             // 
             // cadastrarIngrediente
             // 
@@ -90,7 +90,7 @@
             this.cadastrarIngrediente.TabIndex = 4;
             this.cadastrarIngrediente.Text = "Cadastrar Ingrediente";
             this.cadastrarIngrediente.UseVisualStyleBackColor = true;
-            this.cadastrarIngrediente.Click += new System.EventHandler(this.cadastrarIngrediente_Click);
+            this.cadastrarIngrediente.Click += new System.EventHandler(this.buttonCadastrarIngrediente_Click);
             // 
             // esvaziarEstoque
             // 
@@ -101,7 +101,7 @@
             this.esvaziarEstoque.TabIndex = 5;
             this.esvaziarEstoque.Text = "Esvaziar Estoque";
             this.esvaziarEstoque.UseVisualStyleBackColor = true;
-            this.esvaziarEstoque.Click += new System.EventHandler(this.esvaziarEstoque_Click);
+            this.esvaziarEstoque.Click += new System.EventHandler(this.buttonEsvaziarEstoque_Click);
             // 
             // buttonVoltar
             // 
@@ -122,7 +122,7 @@
             this.completarEstoque.TabIndex = 7;
             this.completarEstoque.Text = "Completar Estoque";
             this.completarEstoque.UseVisualStyleBackColor = true;
-            this.completarEstoque.Click += new System.EventHandler(this.completarEstoque_Click);
+            this.completarEstoque.Click += new System.EventHandler(this.buttonCompletarEstoque_Click);
             // 
             // FormGerenciarEstoque
             // 
