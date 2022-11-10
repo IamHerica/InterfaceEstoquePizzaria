@@ -4,11 +4,12 @@
 - [x] Remover Ingrediente
 - [x] Esvaziar Estoque
 - [x] Completar Estoque
-- [ ] Adicionar Ingrediente
-- [ ] Atualizar Ingrediente
-- [ ] Criar Estoque
-- [ ] Forma de pagamento
-- [ ] Verificar se está usando os padrões de projeto
+- [x] Adicionar Ingrediente
+- [x] Atualizar Ingrediente
+- [x] Criar Estoque
+- [x] Forma de pagamento
+- [x] Verificar se está usando os padrões de projeto
 
 
-<img src="banco de dados.png" />
+<img src="tabelas.png" />
+<img src="tabelas_sql.png" />
